@@ -1,0 +1,35 @@
+<div style="height: 100vh;" class="d-flex align-items-center justify-content-center w-100">
+    <div class="shadow  row rounded p-5 align-items-center">
+        <div class="col-lg-6">
+            <img class="img-fluid"
+                src="https://cdn.dribbble.com/users/2213143/screenshots/7971141/ilustrac_a_o_pop-up_inscricao_2.gif"
+                alt="">
+        </div>
+        <div class="col-lg-6">
+            <h1 style="text-align: center; color: rgb(16, 223, 16);">Welcome user !!!!</h1>
+            <form (ngSubmit)="register()" [formGroup]="registerForm" class="rounded p-5 border">
+                <div class="form-floating mb-3">
+                    <input name="username" formControlName="username" type="text" class="form-control" id="floatingInput" placeholder="name@example" username
+                        required>
+                    <label for="floatingInput">Username</label>
+                </div>
+                <div *ngIf="registerForm.get('username')?.errors &&  registerForm.get('username')?.touched" class="text-danger fw-bolder mb-3">*invaild username</div>
+                <div class="form-floating mb-3">
+                    <input name="email" formControlName="email" type="email" class="form-control" id="floatingInput" placeholder="name@example" email
+                        required>
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <div *ngIf="registerForm.get('email')?.errors &&  registerForm.get('username')?.touched" class="text-danger fw-bolder mb-3">*invaild email</div>
+                <div class="form-floating mb-3">
+                    <input name="password" formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+                <div *ngIf="registerForm.get('password')?.errors &&  registerForm.get('username')?.touched" class="text-danger fw-bolder mb-3">*invaild password</div>
+                <div class="d-flex">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+            </form>
+            <p>Already a user ? click here to<a routerLink="/login"> login</a></p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div style="height: 100vh;" class="d-flex align-items-center justify-content-center w-100">
+    <div class="shadow  row rounded p-5 align-items-center">
+        <div class="col-lg-6">
+            <img class="img-fluid" src="https://cdn.dribbble.com/users/1172503/screenshots/4505740/login-form.gif"
+                alt="">
+        </div>
+        <div class="col-lg-6">
+            <h1 style="text-align: center; color: red;">Welcome user !!!!</h1>
+
+            <form (ngSubmit)="login()" [formGroup]="loginForm" class="rounded p-5 border"  >
+                <div class="form-floating mb-3">
+                    <input name="email" formControlName="email" type="email" class="form-control"
+                        id="floatingInput" placeholder="name@example" email required>
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <div *ngIf="loginForm.get('email')?.errors &&  loginForm.get('email')?.touched" class="text-danger fw-bolder mb-3">*invaild email</div>
+                <div  class="form-floating mb-3">
+                    <input name="password"  formControlName="password" type="password"
+                        class="form-control" id="floatingPassword" placeholder="password" >
+                    <label for="floatingPassword">Password</label>
+                </div>
+                <div *ngIf="loginForm.get('password')?.errors &&  loginForm.get('password')?.touched" class="text-danger fw-bolder mb-3">*invaild password</div>
+                <div class="d-flex">
+                    <button type="submit" class="btn btn-warning">Login</button>
+                </div>
+            </form>
+            <p>new user ? click here to<a routerLink="/register"> register</a></p>
+        </div>
+    </div>
+</div>

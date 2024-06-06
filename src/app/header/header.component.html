@@ -1,0 +1,26 @@
+<nav style="z-index: 5;" class="navbar navbar-expand-lg bg-body-tertiary position-fixed top-0 w-100">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink=""> <i class="fa-solid fa-bag-shopping"></i> style guru </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                </li>
+                <input style="width: 500px;" placeholder="search products here" type="text" class="form-control">
+            </ul>
+            <div class="d-flex ms-3" role="search">
+                <a routerLink="/wishlist" class="btn btn-outline-dark "><i class="fa-solid fa-heart text-danger"></i> wishlist
+                    <span class="badge text-bg-secondary">{{wishlistCount}}</span> </a>
+                    <a routerLink="/cart" class="btn btn-outline-dark ms-1 "><i style="color: rgb(20, 224, 20);" class="fa-solid fa-cart-plus"></i> cart <span class="badge text-bg-secondary">{{cartCount}}</span> </a>
+                    <a *ngIf="!username" routerLink="/login" class="btn ms-1 "><i class="fa-solid fa-user text-primary"></i> Login </a>
+                    <div *ngIf="username" class="ms-2">
+                        <span class="fw-bolder">Hi,{{username}}</span>
+                        <button (click)="logOut()" class="btn btn-danger">Logout</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+</nav>
